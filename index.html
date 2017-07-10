@@ -1,0 +1,50 @@
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>WebIOPi | Light Control</title>
+        <script type="text/javascript" src="./webiopi.js"></script>
+        <script type="text/javascript">
+        webiopi().ready(function() {
+                // Create a "Light" labeled button for GPIO 23
+                var upButton = webiopi().createButton("upButton", "Up", function(){
+                    webiopi().callMacro("up");
+                });
+
+                var downButton = webiopi().createButton("downButton", "Down", function(){
+                    webiopi().callMacro("down");
+                });
+
+                var leftButton = webiopi().createButton("leftButton", "Left", function(){
+                    webiopi().callMacro("left");
+                });
+
+                var rightButton = webiopi().createButton("rightButton", "Right", function(){
+                    webiopi().callMacro("right");
+                });
+
+                var defaultPositionButton = webiopi().createButton("defaultPositionButton", "Default", function(){
+                    webiopi().callMacro("defaultPosition");
+                });
+
+                // Append button to HTML element with ID="controls" using jQuery
+                $("#controls").append(upButton);
+                $("#controls").append(downButton);
+                $("#controls").append(leftButton);
+                $("#controls").append(rightButton);
+                $("#controls").append(defaultPositionButton);
+
+        });
+        </script>
+        <style type="text/css">
+                body{
+                        margin:0;padding:0;
+                }
+                button {
+                        width: 140px;
+                }
+        </style>
+</head>
+<body>
+        <div id="controls"></div>
+</body>
+</html>
